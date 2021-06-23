@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>WolPing</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <div style="display: flex; align-items: center; flex-direction: column;">
+    <form method="POST">
+      {% csrf_token %}
+      <div>
+        <label for="ip-address">IP-address</label>
+        <input type="text" name="ip-address" id="ip-address" value="{{ ip }}">
+      </div>
+      <div>
+        <label for="mac-address">MAC-address</label>
+        <input type="text" name="mac-address" id="mac-address" value="{{ mac }}">
+      </div>
+      <div>
+        <input type="submit" value="update" name="update">
+        <input type="submit" value="save" name="save">
+      </div>
+    </form>
+    <div>
+    <form action="{% url 'ping' %}" method="GET">
+      <input type="submit" value="ping" name="ping">
+    </form>
+    </div>
+    <div>
+      <form action="{% url 'wol' %}" method="GET">
+        <input type="submit" value="wake on lan" name="wol">
+      </form>
+    </div>
+    <div>
+      <label>Response</label><br>
+      <textarea>{{ response }}</textarea>
+    </div>
+  </div>
+</body>
+
+</html>
