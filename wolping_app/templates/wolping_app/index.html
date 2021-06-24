@@ -5,6 +5,44 @@
 
   <title>WolPing</title>
   <meta charset="utf-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display&display=swap');
+
+    div {
+      margin-top: 10px;
+    }
+    label {
+      font-family: 'Big Shoulders Stencil Display', cursive;
+      font-size: 24px;
+      display: inline-block;
+      width: 100px;
+    }
+    input[type="text"] {
+      font-family: 'Big Shoulders Stencil Display', cursive;
+      font-size: 24px;
+      width: 128px;
+      border-radius: 5px;
+    }
+    textarea {
+      font-family: 'Big Shoulders Stencil Display', cursive;
+      font-size: 24px;
+      width: 232px;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      font-family: 'Big Shoulders Stencil Display', cursive;
+      font-size: 24px;
+      color: white;
+      background-color: rgb(88, 46, 230);
+      border-radius: 5px;
+    }
+    .data-btn {
+      width: 118px;
+    }
+    .wolping-btn {
+      width: 240px;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,21 +58,21 @@
         <input type="text" name="mac-address" id="mac-address" value="{{ mac }}">
       </div>
       <div>
-        <input type="submit" value="update" name="update">
-        <input type="submit" value="save" name="save">
+        <input type="submit" value="update" name="update" class="data-btn">
+        <input type="submit" value="save" name="save" class="data-btn">
       </div>
     </form>
     <div>
     <form action="{% url 'ping' %}" method="GET">
-      <input type="submit" value="ping" name="ping">
+      <input type="submit" value="ping" name="ping" class="wolping-btn">
     </form>
     </div>
     <div>
       <form action="{% url 'wol' %}" method="GET">
-        <input type="submit" value="wake on lan" name="wol">
+        <input type="submit" value="wake on lan" name="wol" class="wolping-btn">
       </form>
     </div>
-    <div>
+    <div style="margin-top: 25px;">
       <label>Response</label><br>
       <textarea>{{ response }}</textarea>
     </div>
